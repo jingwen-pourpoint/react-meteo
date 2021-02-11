@@ -6,9 +6,9 @@ import {meteoService} from "../service/MeteoService";
 export const Recherche = (props) => {
     const [ville, setVille] = useState("");
 
-    const onclic = () => {
+    const onClick = () => {
         meteoService.getMeteoByVille(ville)
-            .then(meteoInfo => props.getMeteo(meteoInfo));
+            .then(meteoInfo => props.setMeteo(meteoInfo));
     }
 
     const handleChangeVille = (event) => {
@@ -20,12 +20,10 @@ export const Recherche = (props) => {
             <div className="recherche">
                 <div className="rechercheBar">
                     <label className="" style={{width: '200px'}}>Recherche une ville :</label>
-                    <div className="">
                         <input id="ville" type="text" onChange={handleChangeVille}/>
-                    </div>
                 </div>
                 <div className="bouton">
-                    <Bouton onClick={onclic}>chercher</Bouton>
+                    <Bouton onClick={onClick}>chercher</Bouton>
                 </div>
             </div>
         </Fragment>

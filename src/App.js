@@ -4,16 +4,16 @@ import {Detail} from "./composant/Detail";
 
 export default function App() {
 
-    const [info, setInfo] = useState();
+    const [meteoInfo, setMeteoInfo] = useState();
 
-    const getMeteo = (modelMeteo) => {
-        setInfo(modelMeteo);
+    const setMeteo = (meteo) => {
+        setMeteoInfo(meteo);
     }
 
     return (
         <Fragment>
-            <Recherche getMeteo={getMeteo}/>
-            <Detail info={info}/>
+            <Recherche setMeteo={setMeteo}/>
+            <Detail info={meteoInfo}/>
         </Fragment>
     )
 }
